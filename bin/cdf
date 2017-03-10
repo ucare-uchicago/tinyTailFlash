@@ -1,0 +1,29 @@
+#!/usr/local/bin/python
+import sys, argparse
+
+
+def main(argv):
+    parser = argparse.ArgumentParser(description='cumulative distribution function')
+    parser.add_argument('infile', type=argparse.FileType('r'), help="input")
+    parser.add_argument('outfile', type=argparse.FileType('w'), help="re-orgnized output suitable to be plot")
+    parser.add_argument('-c', action="store_true", help="complementary cdf")
+    args = parser.parse_args()
+    
+    data = []
+    for line in args.infile:
+        data.append(float(line))
+
+    data.sort()
+    
+    for i, line in enumerate(data, 1):
+        if args.c:
+            args.outfile.write("%.3f\t%.6f\n"%(line, 1 - float(i)/len(data)))
+        else:
+            args.outfile.write("%.3f\t%.6f\n"%(line, float(i)/len(data)))           
+            
+    args.infile.close()
+    args.outfile.close()
+
+    
+if __name__ == "__main__":
+    main(sys.argv[1:])

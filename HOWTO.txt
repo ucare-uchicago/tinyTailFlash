@@ -1,0 +1,59 @@
+1. Download ttFlash:
+      
+      git clone https://github.com/ucare-uchicago/tinyTailFlash.git
+
+
+2. Compile ttFlash with Base configuration:
+
+      If you are running on Linux, please remove "#include <malloc/malloc.h>" at
+      line 5 in avlTree.h. 
+	     
+      emacs initialize.c (Go to line 93, set "ssd->stats_time=46799828872000;". This
+      is because we pre-warmed up DTRS with the same workload.)
+
+      cp configs/nogc.config page.parameters
+      make clean
+      make 
+
+
+3. Run ttFlash with DTRS trace:
+      
+      ./ssd traces/DTRS.trace
+
+
+4. Generate data for CDF:
+      
+      python bin/cdf data/raw-data/read_time cdf/DTRS/dat/nogc.dat
+
+
+5. Repeat steps 2 and 4 for def, pbl, gtr, and rgc. 
+
+      cp configs/def.config page.parameters 
+      ./ssd traces/DTRS.trace
+      python bin/cdf data/raw-data/read_time cdf/DTRS/dat/def.dat
+
+      cp configs/pbl.config page.parameters 
+      ./ssd traces/DTRS.trace
+      python bin/cdf data/raw-data/read_time cdf/DTRS/dat/pbl.dat
+
+      cp configs/gtr.config page.parameters 
+      ./ssd traces/DTRS.trace
+      python bin/cdf data/raw-data/read_time cdf/DTRS/dat/gtr.dat
+
+      cp configs/rgc.config page.parameters 
+      ./ssd traces/DTRS.trace
+      python bin/cdf data/raw-data/read_time cdf/DTRS/dat/rgc.dat
+
+
+6. Generate CDF graph:
+      
+      cd cdf/DTRS/
+      
+      Mac OS X:          
+	        all.sh 
+	  
+      Linux:          
+	        gnuplot plot/*.plt 
+	        evince eps/*.eps
+
+You can find other traces at http://iotta.snia.org/tracetypes/3
