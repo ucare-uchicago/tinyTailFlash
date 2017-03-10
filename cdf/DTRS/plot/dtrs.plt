@@ -16,8 +16,8 @@ set tics out
 
 plot \
      'dat/rgc.dat' u ($1/1E6):2 w lines lw 8 lt 1 lc rgb "blue"  not, \
-	  'dat/nogc.dat' u ($1/1E6):2 w lines lw 8 lt 1 lc rgb "purple"  not, \
-	  'dat/gtr.dat' u ($1/1E6):2 w lines lw 5 dt 5 lc rgb "green" not, \
+     'dat/nogc.dat' u ($1/1E6):2 w lines lw 8 lt 1 lc rgb "purple"  not, \
+     'dat/gtr.dat' u ($1/1E6):2 w lines lw 5 dt 5 lc rgb "green" not, \
      'dat/pbl.dat' u ($1/1E6):2 w lines lw 5 dt 3 lc rgb "orange" not, \
      'dat/def.dat' u ($1/1E6):2 w lines lw 3 lt 1 lc rgb "red" not
 

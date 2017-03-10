@@ -3,12 +3,12 @@ This project was supported by the National Basic Research 973 Program of China u
 Huazhong University of Science and Technology (HUST)   Wuhan National Laboratory for Optoelectronics
 
 FileName： initialize.h
-Author: Hu Yang		Version: 2.1	Date:2011/12/02
+Author: Hu Yang      Version: 2.1   Date:2011/12/02
 Description: 
 
 History:
 <contributor>     <time>        <version>       <desc>                   <e-mail>
-Yang Hu	        2009/09/25	  1.0		Creat SSDsim         yanghu@foxmail.com
+Yang Hu         2009/09/25        1.0           Creat SSDsim         yanghu@foxmail.com
                 2010/05/01        2.x           Change 
 Zhiming Zhu     2011/07/01        2.0           Change               812839842@qq.com
 Shuangwu Zhang  2011/11/01        2.1           Change               820876427@qq.com
@@ -38,7 +38,7 @@ Hao Luo         2011/01/01        2.0           Change               luohao13568
 
 #define NORMAL    2
 #define INTERLEAVE_TWO_PLANE 3
-#define COPY_BACK	4
+#define COPY_BACK 4
 
 #define AD_RANDOM 1
 #define AD_COPYBACK 2
@@ -106,19 +106,19 @@ Hao Luo         2011/01/01        2.0           Change               luohao13568
 #define PAGE(lsn) (lsn&0x0000)>>16 
 #define SUBPAGE(lsn) (lsn&0x0000)>>16  
 
-#define PG_SUB 0xffffffff			
+#define PG_SUB 0xffffffff        
 
 /*****************************************
  *函数结果状态代码
  *Status 是函数类型，其值是函数结果状态代码
  ******************************************/
-#define TRUE		1
-#define FALSE		0
-#define SUCCESS		1
-#define FAILURE		0
-#define ERROR		-1
-#define INFEASIBLE	-2
-#define OVERFLOW	-3
+#define TRUE      1
+#define FALSE     0
+#define SUCCESS      1
+#define FAILURE      0
+#define ERROR     -1
+#define INFEASIBLE   -2
+#define OVERFLOW  -3
 typedef int Status;     
 
 struct ac_time_characteristics{
@@ -241,7 +241,7 @@ struct ssd_info{
    struct parameter_value *parameter;   //SSD参数因子
    struct dram_info *dram;
    struct request *request_queue;       //dynamic request queue
-   struct request *request_tail;	       // the tail of the request queue
+   struct request *request_tail;        // the tail of the request queue
    struct sub_request *subs_w_head;     //当采用全动态分配时，分配是不知道应该挂载哪个channel上，所以先挂在ssd上，等进入process函数时才挂到相应的channel的读请求队列上
    struct sub_request *subs_w_tail;
    struct event_node *event;            //事件队列，每产生一个新的事件，按照时间顺序加到这个队列，在simulate函数最后，根据这个队列队首的时间，确定时间
@@ -281,7 +281,7 @@ struct chip_info{
    unsigned int subpage_num_page;      //indicate how many subpage in a page
    unsigned int ers_limit;             //该chip中每块能够被擦除的次数
    unsigned int token;                 //在动态分配中，为防止每次分配在第一个die需要维持一个令牌，每次从令牌所指的位置开始分配
-	
+   
    int current_state;                  //channel has serveral states, including idle, command/address transfer,data transfer,unknown
    int next_state;
    int64_t current_time;               //记录该通道的当前时间
@@ -298,7 +298,7 @@ struct chip_info{
 
 struct die_info{
    unsigned int token;                 //在动态分配中，为防止每次分配在第一个plane需要维持一个令牌，每次从令牌所指的位置开始分配
-   struct plane_info *plane_head;	
+   struct plane_info *plane_head;   
 };
 
 
@@ -339,10 +339,10 @@ struct dram_info{
    struct dram_parameter *dram_paramters;      
    struct map_info *map;
    struct buffer_info *buffer;
-	
+   
    gc_status gc_monitor[8][8];
-	gc_max_status gc_max[8]; //max gc time across channels
-	int rotating_gc; //def is set to be 1
+   gc_max_status gc_max[8]; //max gc time across channels
+   int rotating_gc; //def is set to be 1
 };
 
 
@@ -363,7 +363,7 @@ struct dram_info{
   unsigned int group;                 //lpn 
   unsigned int stored;                //indicate the sector is stored in buffer or not. 1 indicates the sector is stored and 0 indicate the sector isn't stored.EX.  00110011 indicates the first, second, fifth, sixth sector is stored in buffer.
   unsigned int dirty_clean;           //it is flag of the data has been modified, one bit indicates one subpage. EX. 0001 indicates the first subpage is dirty
-  int flag;			      //indicates if this node is the last 20% of the LRU list	
+  int flag;             //indicates if this node is the last 20% of the LRU list 
   }buf_node;*/
 
 
@@ -377,7 +377,7 @@ typedef struct buffer_group{
    unsigned int dirty_clean;
    unsigned int stored_s[2]; //for stripe
    unsigned int dirty_clean_s[2]; 
-   int flag;			      	
+   int flag;                  
 }buf_node;
 
 
@@ -417,7 +417,7 @@ struct request{
    unsigned int *need_distr_flag;
    unsigned int complete_lsn_count;   //record the count of lsn served by buffer
 
-   int distri_flag;		     //indicate whether this request has been distributed already
+   int distri_flag;          //indicate whether this request has been distributed already
 
    int64_t begin_time;
    int64_t response_time;
@@ -493,7 +493,7 @@ struct parameter_value{
    float gc_threshold;             //当达到这个阈值时，开始GC操作，在主动写策略中，开始GC操作后可以临时中断GC操作，服务新到的请求；在普通策略中，GC不可中断
 
    double operating_current;       //NAND FLASH的工作电流单位是uA
-   double supply_voltage;	
+   double supply_voltage;  
    double dram_active_current;     //cpu sdram work current   uA
    double dram_standby_current;    //cpu sdram work current   uA
    double dram_refresh_current;    //cpu sdram work current   uA
@@ -529,7 +529,7 @@ struct parameter_value{
    struct ac_time_characteristics time_characteristics;
 
    int rotating_gc;
-	int dynamic_rotating_gc;
+   int dynamic_rotating_gc;
    int proactive_read;  
    int nonblocking_gc;
    int adaptive_read;

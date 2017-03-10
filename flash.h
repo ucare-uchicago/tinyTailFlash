@@ -3,12 +3,12 @@ This project was supported by the National Basic Research 973 Program of China u
 Huazhong University of Science and Technology (HUST)   Wuhan National Laboratory for Optoelectronics
 
 FileName： flash.h
-Author: Hu Yang		Version: 2.1	Date:2011/12/02
+Author: Hu Yang      Version: 2.1   Date:2011/12/02
 Description: 
 
 History:
 <contributor>     <time>        <version>       <desc>                   <e-mail>
-Yang Hu	        2009/09/25	      1.0		    Creat SSDsim       yanghu@foxmail.com
+Yang Hu         2009/09/25        1.0           Creat SSDsim         yanghu@foxmail.com
                 2010/05/01        2.x           Change 
 Zhiming Zhu     2011/07/01        2.0           Change               812839842@qq.com
 Shuangwu Zhang  2011/11/01        2.1           Change               820876427@qq.com
