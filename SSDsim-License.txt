@@ -28,20 +28,20 @@
  
  Author : Yang Hu
    
- History:					 
+ History:                    
  <contributor>     <time>        <version>       <desc>                   <e-mail>
- Yang Hu	     2009/09/25	       1.0		     Creat SSDsim         yanghu@foxmail.com
+ Yang Hu         2009/09/25        1.0           Creat SSDsim         yanghu@foxmail.com
                  2010/05/01        2.x           Change 
  Zhiming Zhu     2011/07/01        2.0           Change               812839842@qq.com
  Shuangwu Zhang  2011/11/01        2.1           Change               820876427@qq.com
  Chao Ren        2011/07/01        2.0           Change               529517386@qq.com
  Hao Luo         2011/01/01        2.0           Change               luohao135680@gmail.com
- Zhiming Zhu     2012/07/19        2.1.1         Correct erase_planes()   812839842@qq.com  					 
-					 
-					 
-					 
-****************************************************************************************************/					 
-					 
+ Zhiming Zhu     2012/07/19        2.1.1         Correct erase_planes()   812839842@qq.com                       
+                     
+                     
+                     
+****************************************************************************************************/                    
+                     
 
 
 

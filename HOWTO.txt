@@ -7,7 +7,7 @@
 
       If you are running on Linux, please remove "#include <malloc/malloc.h>" at
       line 5 in avlTree.h. 
-	     
+         
       emacs initialize.c (Go to line 93, set "ssd->stats_time=46799828872000;". This
       is because we pre-warmed up DTRS with the same workload.)
 
@@ -50,10 +50,10 @@
       cd cdf/DTRS/
       
       Mac OS X:          
-	        all.sh 
-	  
+                all.sh 
+      
       Linux:          
-	        gnuplot plot/*.plt 
-	        evince eps/*.eps
+                gnuplot plot/*.plt 
+                evince eps/*.eps
 
 You can find other traces at http://iotta.snia.org/tracetypes/3

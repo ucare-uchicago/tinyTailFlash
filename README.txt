@@ -1,17 +1,17 @@
 bin/: 
-	  useful scripts
+          useful scripts
 
 cdf/: 
-	  scripts to generate CDF graph
+          scripts to generate CDF graph
 
 configs/: 
-	  configuration files for Base, Plane Blocking, GC-tolerant Read,
-	  Rotating GC for DTRS workload
+          configuration files for Base, Plane Blocking, GC-tolerant Read,
+          Rotating GC for DTRS workload
 
 data/: 
-	  raw data are written to this folder
+          raw data are written to this folder
 
 traces/:
-	  contains trace files 
+          contains trace files 
 
 Please refer HOWTO.txt to reproduce DTRS result! 
